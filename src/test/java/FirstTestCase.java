@@ -19,10 +19,10 @@ public class FirstTestCase {
     public void firstTestCase(){
         System.out.println("FirstTest");
         WebDriver driver = new ChromeDriver();
-        WebDriverWait warten = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("http://selenium.webtesting.eu/");
         driver.manage().window().maximize();
-        warten.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("menu-item-134")))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("menu-item-134")))).click();
         Assertions.assertEquals( "TESTSEITE-KONTAKTFORMULAR", driver.findElement(By.xpath("//h1[contains(text(),'Testseite-Kontaktformular')]")).getText());
         List<WebElement> radioButton = driver.findElements(By.name("your-customer-type"));
         for (WebElement e: radioButton) {
