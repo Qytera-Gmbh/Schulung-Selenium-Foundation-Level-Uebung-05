@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
 import java.util.List;
 
 public class FirstTestCase {
@@ -19,9 +19,10 @@ public class FirstTestCase {
     public void firstTestCase(){
         System.out.println("FirstTest");
         WebDriver driver = new ChromeDriver();
+        WebDriverWait warten = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("http://selenium.webtesting.eu/");
         driver.manage().window().maximize();
-        driver.findElement(By.id("menu-item-134")).click();
+        warten.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.id("menu-item-134")))).click();
         Assertions.assertEquals( "TESTSEITE-KONTAKTFORMULAR", driver.findElement(By.xpath("//h1[contains(text(),'Testseite-Kontaktformular')]")).getText());
         List<WebElement> radioButton = driver.findElements(By.name("your-customer-type"));
         for (WebElement e: radioButton) {
@@ -35,12 +36,9 @@ public class FirstTestCase {
         driver.quit();
     }
 
-
     @Test
     @Tag("MySecondTestcase")
     public void secondTestCase(){
         System.out.println("SecondTest");
     }
-
-
 }
