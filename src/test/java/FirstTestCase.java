@@ -6,12 +6,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Objects;
 
 public class FirstTestCase {
 
     @BeforeAll
     static void setUp(){
-        System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
+        var lxResourcePath = "src/test/resources/chromedriver";
+        var operatingSystem = System.getProperty("os.name");
+        var resourcePath = operatingSystem.contains("Windows") ? lxResourcePath + ".exe" : lxResourcePath;
+        System.setProperty("webdriver.chrome.driver", resourcePath);
     }
 
     @Test
