@@ -3,6 +3,6 @@ This project is a possible solution after exercise 5.
 
 This sample project shows the training after chapter 7 - Assertions.
 
-Execute Maven - alles: mvn test
-Execute Maven - einzeln: mvn test -Dtest=FirstTestCase#firstTestCase test
+Execute Maven - complete: mvn test
+Execute Maven - single: mvn test -Dtest=FirstTestCase#firstTestCase test
 
