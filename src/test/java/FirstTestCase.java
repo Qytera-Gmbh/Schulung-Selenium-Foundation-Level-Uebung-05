@@ -13,8 +13,8 @@ public class FirstTestCase {
     @BeforeAll
     static void setUp(){
         var lxResourcePath = "src/test/resources/chromedriver";
-        var operatingSystem = System.getProperty("os.name");
-        var resourcePath = operatingSystem.contains("Windows") ? lxResourcePath + ".exe" : lxResourcePath;
+        var operatingSystem = System.getProperty("os.name").toLowerCase();
+        var resourcePath = operatingSystem.contains("windows") ? lxResourcePath + ".exe" : lxResourcePath;
         System.setProperty("webdriver.chrome.driver", resourcePath);
     }
 
